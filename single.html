@@ -1,0 +1,48 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="styles2.css">
+	</head>
+	<body>
+		<input type="text" id="number"></input>
+		<button onclick="func()">btn</button>
+		<div class="container">
+			<div class="card">
+				<div class="box">
+					<div class="percent">
+						<svg>
+							<circle id="svg-circ" cx="70" cy="70" r="70"></circle>
+							<circle id="svg-circ2" cx="70" cy="70" r="70"></circle>
+						</svg>
+						<div class="number">
+							<h2 id="textH2">0</h2><h2><span>%</span></h2>
+						</div>
+					</div>
+					<h2 class="text">Html</h2>
+				</div>
+			</div>			
+		</div>
+		<script>			
+			function func(){
+				var textH2 = document.getElementById("textH2");
+				var number = document.getElementById("number");
+				var element2 = document.getElementById("svg-circ2");
+				//alert("number: " + number.value);
+				if(number.value >= 0 && number.value <= 100){
+					element2.style.strokeDasharray = 440;
+					element2.style.strokeDashoffset = 440 - (440 * number.value) / 100;
+					element2.style.stroke="#00ff43";
+					textH2.innerHTML  = number.value;
+				}else{
+					element2.style.strokeDasharray = 440;
+					element2.style.strokeDashoffset = 440;
+					alert("number: " + number.value);
+					textH2.innerHTML = "0";
+				}
+								
+			}
+		</script>
+	</body>
+</html>
